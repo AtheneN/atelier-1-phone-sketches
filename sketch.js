@@ -56,7 +56,7 @@ function draw(){
 
   // movement control
   if (window.sensorsEnabled) {
-    debugger(rotationX);
+    debug(rotationX);
     if (restX === null) {
       restX = rotationX;
     }
