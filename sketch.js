@@ -23,7 +23,7 @@ window.addEventListener('devicemotion', function (event) {
 // set-up
 async function setup() {
   createCanvas(windowWidth, windowHeight);
-
+  showDebug();
   lockGestures();
 
   if (location.protocol === 'https:' && window.self === window.top) {
@@ -56,6 +56,7 @@ function draw(){
 
   // movement control
   if (window.sensorsEnabled) {
+    debugger(rotationX);
     if (restX === null) {
       restX = rotationX;
     }
