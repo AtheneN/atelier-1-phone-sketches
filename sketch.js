@@ -10,20 +10,9 @@ let vx = 0;
 let vy = 0;
 let restX = null;
 
-// check for motion
-/*
-let motionArrived = false;
-window.addEventListener('devicemotion', function (event) {
-  let g = event.accelerationIncludingGravity;
-  if (g && g.x !== null) {
-    motionArrived = true;
-  }
-});
-*/
 // set-up
 async function setup() {
   createCanvas(windowWidth, windowHeight);
- // showDebug();
   lockGestures();
 
   if (location.protocol === 'https:' && window.self === window.top) {
@@ -56,7 +45,6 @@ function draw(){
 
   // movement control
   if (window.sensorsEnabled) {
-    debug(rotationX);
     if (restX === null) {
       restX = rotationX;
     }
@@ -78,16 +66,16 @@ function draw(){
   // out-of-bounds controls
   if (x > width){
     x = 0;
-    vibrate(50);
+    // vibrate(50);
   } else if (x < 0){
     x = width;
-    vibrate(50);
+    // vibrate(50);
   } else if (y > height){
     y = 0;
-    vibrate(50);
+    // vibrate(50);
   } else if (y < 0){
     y = h;
-    vibrate(50);
+    // vibrate(50);
   }
 
   // drawing circle
@@ -103,16 +91,6 @@ function draw(){
     blueValue = random(100,255);
     greenValue = random(0,255);
   }
-
-  // text
-  textSize(15);
-  /*
-  if (!window.sensorsEnabled) {
-    text('tap to turn on motion', 16, 26);
-  } else if (!motionArrived) {
-    text('no motion here. hold a finger down to steer', 16, 26);
-  } 
-  */
 }
 
 // extra functions
