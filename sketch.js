@@ -23,7 +23,7 @@ window.addEventListener('devicemotion', function (event) {
 // set-up
 async function setup() {
   createCanvas(windowWidth, windowHeight);
-  showDebug();
+ // showDebug();
   lockGestures();
 
   if (location.protocol === 'https:' && window.self === window.top) {
