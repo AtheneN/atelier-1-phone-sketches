@@ -31,7 +31,7 @@ async function setup() {
 
   imageMode(CENTER);
   enableGyroTap('Tap to turn on motion');
-  enableVibrationTap('Tap to turn on vibration');
+  // enableVibrationTap('Tap to turn on vibration');
   angleMode(DEGREES);
 
   // assigning values to variables
