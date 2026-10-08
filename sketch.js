@@ -5,7 +5,7 @@ let greenValue;
 let x;
 let y;
 let speed = 0.4;
-let friction = 0.96;
+let friction = 0.5;
 let vx = 0;
 let vy = 0;
 let restX = null;
