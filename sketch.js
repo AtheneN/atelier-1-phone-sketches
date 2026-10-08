@@ -1,4 +1,4 @@
-// defining variables
+  // defining variables
 let redValue;
 let blueValue;
 let greenValue;
