@@ -11,6 +11,7 @@ let vy = 0;
 let restX = null;
 
 // check for motion
+/*
 let motionArrived = false;
 window.addEventListener('devicemotion', function (event) {
   let g = event.accelerationIncludingGravity;
@@ -18,7 +19,7 @@ window.addEventListener('devicemotion', function (event) {
     motionArrived = true;
   }
 });
-
+*/
 // set-up
 async function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -54,7 +55,7 @@ function draw(){
   let pushY = 0;
 
   // movement control
-  if (window.sensorsEnabled && motionArrived) {
+  if (window.sensorsEnabled) {
     if (restX === null) {
       restX = rotationX;
     }
