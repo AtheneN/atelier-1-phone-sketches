@@ -1,3 +1,4 @@
+// defining variables
 let redValue;
 let blueValue;
 let greenValue;
@@ -9,6 +10,7 @@ let vx = 0;
 let vy = 0;
 let restX = null;
 
+// check for motion
 let motionArrived = false;
 window.addEventListener('devicemotion', function (event) {
   let g = event.accelerationIncludingGravity;
@@ -17,6 +19,7 @@ window.addEventListener('devicemotion', function (event) {
   }
 });
 
+// set-up
 async function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -31,6 +34,7 @@ async function setup() {
   enableVibrationTap('Tap to turn on vibration');
   angleMode(DEGREES);
 
+  // assigning values to variables
   redValue = 137;
   blueValue = 196;
   greenValue = 247;
@@ -40,12 +44,16 @@ async function setup() {
 
 }
 
+// repeating function
 function draw(){
+  // clearing background
   background('#fff4d1')
 
+  // variables
   let pushX = 0;
   let pushY = 0;
 
+  // movement control
   if (window.sensorsEnabled && motionArrived) {
     if (restX === null) {
       restX = rotationX;
@@ -59,11 +67,13 @@ function draw(){
   }
   }
 
+  // changing position
   vx = (vx + pushX * speed) * friction;
   vy = (vy + pushY * speed) * friction;
   x = constrain(x + vx, 0, width);
   y = constrain(y + vy, 0, height);
 
+  // out-of-bounds controls
   if (x > width){
     x = 0;
     vibrate(50);
@@ -78,31 +88,30 @@ function draw(){
     vibrate(50);
   }
 
+  // drawing circle
   noStroke();
-
   for(let i = 0; i < 4; i++){
     fill(redValue - i*10, blueValue - i*25, greenValue);
     circle(x, y, width/4 - (i*(width/4)/4));
   }
 
+  // changing color 
   if (mouseIsPressed){
     redValue = random(40, 255);
     blueValue = random(100,255);
     greenValue = random(0,255);
   }
 
+  // text
   textSize(15);
   if (!window.sensorsEnabled) {
     text('tap to turn on motion', 16, 26);
-    if (mouseIsPressed) {
-      pushX = constrain((mouseX - x) / 200, -1, 1);
-      pushY = constrain((mouseY - y) / 200, -1, 1);
-    }
   } else if (!motionArrived) {
     text('no motion here. hold a finger down to steer', 16, 26);
   } 
 }
 
+// extra functions
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
