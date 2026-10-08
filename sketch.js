@@ -106,11 +106,13 @@ function draw(){
 
   // text
   textSize(15);
+  /*
   if (!window.sensorsEnabled) {
     text('tap to turn on motion', 16, 26);
   } else if (!motionArrived) {
     text('no motion here. hold a finger down to steer', 16, 26);
   } 
+  */
 }
 
 // extra functions
